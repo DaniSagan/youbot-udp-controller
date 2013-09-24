@@ -1,0 +1,10 @@
+*~
+build/
+bin/
+lib/
+trash/
+doc/latex/pfc.aux
+doc/latex/pfc.log
+doc/latex/pfc.out
+doc/latex/pfc.synctex.gz
+doc/latex/pfc.toc

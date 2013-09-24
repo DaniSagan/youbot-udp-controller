@@ -1,0 +1,12 @@
+<stack>
+  <description brief="YouBot platform control">
+    
+    Description
+    
+  </description>
+  <author>Daniel Fernández Villanueva</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url></url>
+  <depend stack="ros"/>
+</stack>

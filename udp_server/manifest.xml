@@ -1,0 +1,17 @@
+<package>
+  <description brief="udp_server">
+
+     udp_server
+
+  </description>
+  <author>Daniel</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/udp_server</url>
+  <depend package="rospy"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+
