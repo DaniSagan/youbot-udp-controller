@@ -9,12 +9,13 @@ def talker():
     linear_pub = rospy.Publisher('/youbot_client/platform_vel_cmd/linear', Float32)
     angular_pub = rospy.Publisher('/youbot_client/platform_vel_cmd/angular', Float32)
     rospy.init_node('udp_server')
-    UDP_IP = ''
+    UDP_IP = '0.0.0.0'
     UDP_PORT = 5555
 
     sock = socket.socket(socket.AF_INET, # Internet
                          socket.SOCK_DGRAM) # UDP
     sock.bind((UDP_IP, UDP_PORT))
+    print('Connected to address %s:%d' % (UDP_IP, UDP_PORT))
     while not rospy.is_shutdown():
         data_str, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
         data = data_str.split(',')
@@ -27,16 +28,16 @@ def talker():
         if (ang_acc < 0.4 * math.pi and ang_acc > -0.4 * math.pi and
            ang_turn < 0.4 * math.pi and ang_turn > -0.4 * math.pi):
             if ang_acc >= 0.1:
-                lin_vel = (ang_acc - 0.1) * 3.0
+                lin_vel = (ang_acc - 0.1) * 1.0
             elif ang_acc <= -0.1:
-                lin_vel = (ang_acc + 0.1) * 3.0
+                lin_vel = (ang_acc + 0.1) * 1.0
             else:
                 lin_vel = 0.0
             
             if ang_turn >= 0.1:
-                ang_vel = (ang_turn - 0.1) * 6.0
+                ang_vel = (ang_turn - 0.1) * 2.0
             elif ang_turn <= -0.1:
-                ang_vel = (ang_turn + 0.1) * 6.0
+                ang_vel = (ang_turn + 0.1) * 2.0
             else:
                 ang_vel = 0.0
         else:
