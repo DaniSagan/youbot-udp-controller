@@ -27,19 +27,22 @@ def talker():
         
         if (ang_acc < 0.4 * math.pi and ang_acc > -0.4 * math.pi and
            ang_turn < 0.4 * math.pi and ang_turn > -0.4 * math.pi):
-            if ang_acc >= 0.1:
-                lin_vel = (ang_acc - 0.1) * 1.0
-            elif ang_acc <= -0.1:
-                lin_vel = (ang_acc + 0.1) * 1.0
-            else:
-                lin_vel = 0.0
-            
             if ang_turn >= 0.1:
                 ang_vel = (ang_turn - 0.1) * 2.0
             elif ang_turn <= -0.1:
                 ang_vel = (ang_turn + 0.1) * 2.0
             else:
                 ang_vel = 0.0
+            
+            if ang_acc >= 0.1:
+                lin_vel = (ang_acc - 0.1) * 1.0
+            elif ang_acc <= -0.1:
+                lin_vel = (ang_acc + 0.1) * 1.0
+                ang_vel = ang_vel * (-1.0);
+            else:
+                lin_vel = 0.0
+            
+            
         else:
             ang_vel = 0.0
             lin_vel = 0.0
